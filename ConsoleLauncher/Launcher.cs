@@ -1,0 +1,109 @@
+﻿using EnvDTE;
+using Microsoft.VisualStudio;
+using Microsoft.VisualStudio.Shell;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
+{
+    internal class Launcher
+    {
+        private DTE _dte;
+        private Options _options;
+
+        internal Launcher(DTE dte, Options options)
+        {
+            _dte = dte;
+            _options = options;
+        }
+
+        internal void Launch()
+        {
+            var workingDirectory = GetWorkingDirectory();
+
+            var process = System.Diagnostics.Process.Start(new ProcessStartInfo()
+            {
+                WorkingDirectory = workingDirectory,
+                FileName = GetFileName(),
+                Arguments = GetArguments()
+            });
+
+            System.Threading.Thread.Sleep(250);
+
+            if (process.HasExited && process.ExitCode != 0)
+                throw new Exception("Console has exited unexpectedly. This often happens due to the incorrect tab settings.");
+
+            NativeMethods.SetForegroundWindow(process.MainWindowHandle);
+        }
+
+        private string GetWorkingDirectory()
+        {
+            string path;
+            var selectedItem = _dte.SelectedItems.Item(1);
+
+            if (selectedItem.Project != null &&
+                selectedItem.Project.Kind != "{66A26720-8FB5-11D2-AA7E-00C04F688DDE}" && // Excludes Solution Folders.
+                !string.IsNullOrEmpty(selectedItem.Project.FullName))
+            {
+                // Project.
+                path = selectedItem.Project.FullName;
+            }
+            else if (selectedItem.ProjectItem != null &&
+                (
+                    Guid.Parse(selectedItem.ProjectItem.Kind) == VSConstants.GUID_ItemType_PhysicalFile ||
+                    Guid.Parse(selectedItem.ProjectItem.Kind) == VSConstants.GUID_ItemType_PhysicalFolder
+                ) &&
+                selectedItem.ProjectItem.Properties != null &&
+                selectedItem.ProjectItem.Properties.Item("FullPath") != null)
+            {
+                // Project Folder (also Project Properties) or Project Item.
+                path = selectedItem.ProjectItem.Properties.Item("FullPath").Value.ToString();
+            }
+            else
+            {
+                // Solution, Solution Folder, Solution Folder contents or Project References.
+                path = _dte.Solution.FullName;
+            }
+
+            if (string.IsNullOrEmpty(path))
+            {
+                var defaultWorkingDirectory = string.IsNullOrEmpty(_options.DefaultWorkingDirectory) ? "%HOMEDRIVE%%HOMEPATH%" : _options.DefaultWorkingDirectory;
+                return Environment.ExpandEnvironmentVariables(defaultWorkingDirectory);
+            }
+            else
+                return Path.GetDirectoryName(path);
+        }
+
+        private string GetFileName()
+        {
+            return _options.Path;
+        }
+
+        private string GetArguments()
+        {
+            var arguments = new StringBuilder();
+
+            if (!string.IsNullOrEmpty(_options.TabName1))
+                arguments.AppendFormat(" -t \"{0}\"", _options.TabName1);
+
+            if (!string.IsNullOrEmpty(_options.TabName2))
+                arguments.AppendFormat(" -t \"{0}\"", _options.TabName2);
+
+            if (!string.IsNullOrEmpty(_options.TabName3))
+                arguments.AppendFormat(" -t \"{0}\"", _options.TabName3);
+
+            if (!string.IsNullOrEmpty(_options.TabName4))
+                arguments.AppendFormat(" -t \"{0}\"", _options.TabName4);
+
+            if (!string.IsNullOrEmpty(_options.TabName5))
+                arguments.AppendFormat(" -t \"{0}\"", _options.TabName5);
+
+            return arguments.ToString();
+        }
+    }
+}
