@@ -29,27 +29,27 @@ namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
         [Description("Console will open in this folder in case it cannot guess the working directory from the current Solution Explorer selection.")]
         public string DefaultWorkingDirectory { get; set; }
 
-        [Category("Settings")]
+        [Category("Tabs")]
         [DisplayName("Tab 1 Name")]
         [Description("The tab name configured in Console settings to open when launching Console. Case sensitive.")]
         public string TabName1 { get; set; }
 
-        [Category("Settings")]
+        [Category("Tabs")]
         [DisplayName("Tab 2 Name")]
         [Description("The tab name configured in Console settings to open when launching Console. Case sensitive.")]
         public string TabName2 { get; set; }
 
-        [Category("Settings")]
+        [Category("Tabs")]
         [DisplayName("Tab 3 Name")]
         [Description("The tab name configured in Console settings to open when launching Console. Case sensitive.")]
         public string TabName3 { get; set; }
 
-        [Category("Settings")]
+        [Category("Tabs")]
         [DisplayName("Tab 4 Name")]
         [Description("The tab name configured in Console settings to open when launching Console. Case sensitive.")]
         public string TabName4 { get; set; }
 
-        [Category("Settings")]
+        [Category("Tabs")]
         [DisplayName("Tab 5 Name")]
         [Description("The tab name configured in Console settings to open when launching Console. Case sensitive.")]
         public string TabName5 { get; set; }
@@ -59,7 +59,7 @@ namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
             if (string.IsNullOrEmpty(Path))
                 return "Console Path was not set.";
 
-            if (System.IO.Path.IsPathRooted(Path) && !File.Exists(Path))
+            if (!FileExists(Path))
                 return "Console Path points to a non-existent file.";
 
             if (!string.IsNullOrEmpty(DefaultWorkingDirectory) && !Directory.Exists(Environment.ExpandEnvironmentVariables(DefaultWorkingDirectory)))
@@ -84,5 +84,19 @@ namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
         }
 
         #endregion
+
+        private static bool FileExists(string filePath)
+        {
+            if (System.IO.Path.IsPathRooted(filePath))
+                return File.Exists(filePath);
+
+            foreach (var path in Environment.GetEnvironmentVariable("PATH").Split(';'))
+            {
+                if (File.Exists(System.IO.Path.Combine(path, filePath)))
+                    return true;
+            }
+
+            return false;
+        }
     }
 }

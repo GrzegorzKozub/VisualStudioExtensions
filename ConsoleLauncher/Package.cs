@@ -29,7 +29,7 @@ namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
             base.Initialize();
 
             _menuCommandService = GetService(typeof(IMenuCommandService)) as OleMenuCommandService;
-            _uiShell = (IVsUIShell)GetService(typeof(SVsUIShell));
+            _uiShell = GetService(typeof(SVsUIShell)) as IVsUIShell;
 
             AddMenuComands();
         }
