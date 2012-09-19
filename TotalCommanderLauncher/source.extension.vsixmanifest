@@ -6,9 +6,9 @@
     <Version>1.0.0.0</Version>
     <Description xml:space="preserve">A command to launch Total Commander (http://www.ghisler.com/) in the location of the currently selected Solution Explorer item. The command is added to the Solution Explorer context menu, Solution Explorer toolbar and the Tools main menu and is only visible when a solution or project is open. Options allow for configuring Total Commander panels and tabs.</Description>
     <Locale>1033</Locale>
-    <MoreInfoUrl>http://visualstudiogallery.msdn.microsoft.com/1460ab21-75be-49d0-900f-dfd538321424</MoreInfoUrl>
+    <MoreInfoUrl>http://visualstudiogallery.msdn.microsoft.com/6432661f-c473-4883-aacd-008107c1135e</MoreInfoUrl>
     <License>Licenses\MS-PL.txt</License>
-    <GettingStartedGuide>http://visualstudiogallery.msdn.microsoft.com/1460ab21-75be-49d0-900f-dfd538321424</GettingStartedGuide>
+    <GettingStartedGuide>http://visualstudiogallery.msdn.microsoft.com/6432661f-c473-4883-aacd-008107c1135e</GettingStartedGuide>
     <Icon>Images\Icon.png</Icon>
     <PreviewImage>Images\PreviewImage.png</PreviewImage>
     <InstalledByMsi>false</InstalledByMsi>
