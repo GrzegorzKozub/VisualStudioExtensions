@@ -32,6 +32,7 @@ namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
         [Category("Left Panel")]
         [DisplayName("Left Panel Location")]
         [Description("The location to open in the left Total Commander panel.")]
+        [TypeConverter(typeof(PanelLocationConverter))]
         public PanelLocation LeftPanelLocation { get; set; }
 
         [Category("Left Panel")]
@@ -42,6 +43,7 @@ namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
         [Category("Right Panel")]
         [DisplayName("Right Panel Location")]
         [Description("The location to open in the right Total Commander panel.")]
+        [TypeConverter(typeof(PanelLocationConverter))]
         public PanelLocation RightPanelLocation { get; set; }
 
         [Category("Right Panel")]
@@ -52,16 +54,19 @@ namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
         [Category("Settings")]
         [DisplayName("Active Panel")]
         [Description("Total Commander panel to activate.")]
+        [TypeConverter(typeof(ActivePanelConverter))]
         public ActivePanel ActivePanel { get; set; }
 
         [Category("Settings")]
         [DisplayName("Create New Tabs")]
         [Description("Create new Total Commander tabs for the directories to open.")]
+        [TypeConverter(typeof(YesNoConverter))]
         public bool CreateNewTabs { get; set; }
 
         [Category("Settings")]
         [DisplayName("Reuse Existing Instance")]
         [Description("Activate an already running Total Commander instance passing it the directories to open.")]
+        [TypeConverter(typeof(YesNoConverter))]
         public bool ReuseExistingInstance { get; set; }
 
         public string GetValidationErrors()
