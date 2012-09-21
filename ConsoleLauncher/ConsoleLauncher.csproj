@@ -98,13 +98,13 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleLauncherPackage.cs" />
     <Compile Include="Launcher.cs" />
     <Compile Include="Guids.cs" />
     <Compile Include="NativeMethods.cs" />
     <Compile Include="Options.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Package.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CommandIds.cs" />
   </ItemGroup>

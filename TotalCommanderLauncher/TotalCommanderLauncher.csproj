@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivePanelConverter.cs" />
+    <Compile Include="TotalCommanderLauncherPackage.cs" />
     <Compile Include="YesNoConverter.cs" />
     <Compile Include="EnumExtensions.cs" />
     <Compile Include="PanelLocation.cs" />
@@ -108,7 +109,6 @@
     <Compile Include="Options.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Package.cs" />
     <Compile Include="EnumConverter.cs" />
     <Compile Include="PanelLocationConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

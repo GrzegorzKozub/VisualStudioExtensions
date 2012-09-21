@@ -10,14 +10,14 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
+namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
 {
     [Guid(Guids.Package)]
     [InstalledProductRegistration("#1", "#2", Guids.Package, IconResourceID = 3)]
     [PackageRegistration(UseManagedResourcesOnly = true)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
-    [ProvideOptionPage(typeof(Options), "Console Launcher", "General", 0, 0, false)]
-    public sealed class Package : Microsoft.VisualStudio.Shell.Package
+    [ProvideOptionPage(typeof(Options), "Total Commander Launcher", "General", 0, 0, false)]
+    public sealed class TotalCommanderLauncherPackage : Microsoft.VisualStudio.Shell.Package
     {
         private IMenuCommandService _menuCommandService;
         private IVsUIShell _uiShell;
@@ -38,13 +38,13 @@ namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
 
         private void AddMenuComands()
         {
-            var consoleCommandId = new CommandID(Guids.MenuGroup, (int)CommandIds.Console);
-            var consoleMenuCommand = new MenuCommand(HandleConsoleMenuCommand, consoleCommandId);
+            var totalCommanderCommandId = new CommandID(Guids.MenuGroup, (int)CommandIds.TotalCommander);
+            var totalCommanderMenuCommand = new MenuCommand(HandleTotalCommanderMenuCommand, totalCommanderCommandId);
 
-            _menuCommandService.AddCommand(consoleMenuCommand);
+            _menuCommandService.AddCommand(totalCommanderMenuCommand);
         }
 
-        private void HandleConsoleMenuCommand(object sender, EventArgs ea)
+        private void HandleTotalCommanderMenuCommand(object sender, EventArgs eventArgs)
         {
             var dte = GetGlobalService(typeof(DTE)) as DTE;
             var options = GetDialogPage(typeof(Options)) as Options;
@@ -78,7 +78,7 @@ namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
                 0,
                 ref comp,
                 errorMessage,
-                "Do you want to visit the Options page for Console Launcher now?",
+                "Do you want to visit the Options page for Total Commander Launcher now?",
                 string.Empty,
                 0,
                 OLEMSGBUTTON.OLEMSGBUTTON_YESNO,
