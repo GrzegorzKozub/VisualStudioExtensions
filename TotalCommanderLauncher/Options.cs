@@ -36,9 +36,9 @@ namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
         public PanelLocation LeftPanelLocation { get; set; }
 
         [Category("Left Panel")]
-        [DisplayName("Left Panel Specific Directory")]
-        [Description("The folder to open in the left Total Commander panel if Left Panel Location is set to Specific Directory.")]
-        public string LeftPanelSpecificDirectory { get; set; }
+        [DisplayName("Left Panel Specific Path")]
+        [Description("The folder or file to open in the left Total Commander panel if Left Panel Location is set to Specific Path.")]
+        public string LeftPanelSpecificPath { get; set; }
 
         [Category("Right Panel")]
         [DisplayName("Right Panel Location")]
@@ -47,9 +47,9 @@ namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
         public PanelLocation RightPanelLocation { get; set; }
 
         [Category("Right Panel")]
-        [DisplayName("Right Panel Specific Directory")]
-        [Description("The folder to open in the right Total Commander panel if Right Panel Location is set to Specific Directory.")]
-        public string RightPanelSpecificDirectory { get; set; }
+        [DisplayName("Right Panel Specific Path")]
+        [Description("The folder or file to open in the right Total Commander panel if Right Panel Location is set to Specific Path.")]
+        public string RightPanelSpecificPath { get; set; }
 
         [Category("Settings")]
         [DisplayName("Active Panel")]
@@ -77,20 +77,20 @@ namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
             if (!FileExists(Path))
                 return "Total Commander Path points to a non-existent file.";
 
-            if (!string.IsNullOrEmpty(DefaultWorkingDirectory) && !Directory.Exists(Environment.ExpandEnvironmentVariables(DefaultWorkingDirectory)))
+            if (!string.IsNullOrEmpty(DefaultWorkingDirectory) && !PathExists((DefaultWorkingDirectory)))
                 return "Default Working Directory points to a non-existent path.";
 
-            if (LeftPanelLocation == PanelLocation.SpecificDirectory && string.IsNullOrEmpty(LeftPanelSpecificDirectory))
-                return "Left Panel Specific Directory must be set when Left Panel Location is set to Specific Directory.";
+            if (LeftPanelLocation == PanelLocation.SpecificPath && string.IsNullOrEmpty(LeftPanelSpecificPath))
+                return "Left Panel Specific Path must be set when Left Panel Location is set to Specific Path.";
 
-            if (!string.IsNullOrEmpty(LeftPanelSpecificDirectory) && !Directory.Exists(Environment.ExpandEnvironmentVariables(LeftPanelSpecificDirectory)))
-                return "Left Panel Specific Directory points to a non-existent path.";
+            if (!string.IsNullOrEmpty(LeftPanelSpecificPath) && !PathExists(LeftPanelSpecificPath))
+                return "Left Panel Specific Path points to a non-existent path.";
 
-            if (RightPanelLocation == PanelLocation.SpecificDirectory && string.IsNullOrEmpty(RightPanelSpecificDirectory))
-                return "Right Panel Specific Directory must be set when Right Panel Location is set to Specific Directory.";
+            if (RightPanelLocation == PanelLocation.SpecificPath && string.IsNullOrEmpty(RightPanelSpecificPath))
+                return "Right Panel Specific Path must be set when Right Panel Location is set to Specific Path.";
 
-            if (!string.IsNullOrEmpty(RightPanelSpecificDirectory) && !Directory.Exists(Environment.ExpandEnvironmentVariables(RightPanelSpecificDirectory)))
-                return "Right Panel Specific Directory points to a non-existent path.";
+            if (!string.IsNullOrEmpty(RightPanelSpecificPath) && !PathExists(RightPanelSpecificPath))
+                return "Right Panel Specific Path points to a non-existent path.";
 
             return null;
         }
@@ -103,10 +103,10 @@ namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
 
             Path = "totalcmd64.exe";
             DefaultWorkingDirectory = "%HOMEDRIVE%%HOMEPATH%";
-            LeftPanelLocation = PanelLocation.SolutionExplorerDirectory;
-            LeftPanelSpecificDirectory = null;
-            RightPanelLocation = PanelLocation.SolutionExplorerDirectory;
-            RightPanelSpecificDirectory = null;
+            LeftPanelLocation = PanelLocation.SolutionExplorerPath;
+            LeftPanelSpecificPath = null;
+            RightPanelLocation = PanelLocation.SolutionExplorerPath;
+            RightPanelSpecificPath = null;
             ActivePanel = ActivePanel.Left;
             ReuseExistingInstance = false;
             CreateNewTabs = false;
@@ -126,6 +126,12 @@ namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
             }
 
             return false;
+        }
+
+        private static bool PathExists(string path)
+        {
+            var pathExpanded = Environment.ExpandEnvironmentVariables(path);
+            return File.Exists(pathExpanded) || Directory.Exists(pathExpanded);
         }
     }
 }

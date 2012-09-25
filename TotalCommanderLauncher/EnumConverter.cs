@@ -31,10 +31,10 @@ namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
                 {
                     if (item.GetDescription() == val)
                         return item;
-                }                
+                }
             }
 
-            return base.ConvertFrom(context, culture, value);
+            return default(TEnum);
         }
 
         public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
@@ -50,7 +50,7 @@ namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
             if (value is TEnum && destinationType == typeof(string))
                 return ((TEnum)value).GetDescription();
 
-            return base.ConvertTo(context, culture, value, destinationType);
+            return default(TEnum).GetDescription();
         }
     }
 }

@@ -9,11 +9,11 @@ namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
 {
     public enum PanelLocation
     {
-        [Description("Solution Explorer Directory")]
-        SolutionExplorerDirectory,
+        [Description("Solution Explorer Path")]
+        SolutionExplorerPath,
 
-        [Description("Specific Directory Set Below")]
-        SpecificDirectory,
+        [Description("Specific Path (Set Below)")]
+        SpecificPath,
 
         [Description("Unchanged")]
         Unchanged

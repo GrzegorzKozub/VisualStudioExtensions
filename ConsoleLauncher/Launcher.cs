@@ -24,7 +24,7 @@ namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
 
         internal void Launch()
         {
-            var workingDirectory = GetWorkingDirectory();
+            var workingDirectory = Path.GetDirectoryName(GetActiveItemPath());
 
             var process = System.Diagnostics.Process.Start(new ProcessStartInfo()
             {
@@ -41,7 +41,34 @@ namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
             NativeMethods.SetForegroundWindow(process.MainWindowHandle);
         }
 
-        private string GetWorkingDirectory()
+        private string GetFileName()
+        {
+            return _options.Path;
+        }
+
+        private string GetArguments()
+        {
+            var arguments = new StringBuilder();
+
+            if (!string.IsNullOrEmpty(_options.TabName1))
+                arguments.AppendFormat(" -t \"{0}\"", _options.TabName1);
+
+            if (!string.IsNullOrEmpty(_options.TabName2))
+                arguments.AppendFormat(" -t \"{0}\"", _options.TabName2);
+
+            if (!string.IsNullOrEmpty(_options.TabName3))
+                arguments.AppendFormat(" -t \"{0}\"", _options.TabName3);
+
+            if (!string.IsNullOrEmpty(_options.TabName4))
+                arguments.AppendFormat(" -t \"{0}\"", _options.TabName4);
+
+            if (!string.IsNullOrEmpty(_options.TabName5))
+                arguments.AppendFormat(" -t \"{0}\"", _options.TabName5);
+
+            return arguments.ToString();
+        }
+
+        private string GetActiveItemPath()
         {
             string path;
             var selectedItem = _dte.SelectedItems.Item(1);
@@ -71,39 +98,15 @@ namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
             }
 
             if (string.IsNullOrEmpty(path))
-            {
-                var defaultWorkingDirectory = string.IsNullOrEmpty(_options.DefaultWorkingDirectory) ? "%HOMEDRIVE%%HOMEPATH%" : _options.DefaultWorkingDirectory;
-                return Environment.ExpandEnvironmentVariables(defaultWorkingDirectory);
-            }
-            else
-                return Path.GetDirectoryName(path);
+                return GetDefaultWorkingDirectory();
+
+            return path;
         }
 
-        private string GetFileName()
+        private string GetDefaultWorkingDirectory()
         {
-            return _options.Path;
-        }
-
-        private string GetArguments()
-        {
-            var arguments = new StringBuilder();
-
-            if (!string.IsNullOrEmpty(_options.TabName1))
-                arguments.AppendFormat(" -t \"{0}\"", _options.TabName1);
-
-            if (!string.IsNullOrEmpty(_options.TabName2))
-                arguments.AppendFormat(" -t \"{0}\"", _options.TabName2);
-
-            if (!string.IsNullOrEmpty(_options.TabName3))
-                arguments.AppendFormat(" -t \"{0}\"", _options.TabName3);
-
-            if (!string.IsNullOrEmpty(_options.TabName4))
-                arguments.AppendFormat(" -t \"{0}\"", _options.TabName4);
-
-            if (!string.IsNullOrEmpty(_options.TabName5))
-                arguments.AppendFormat(" -t \"{0}\"", _options.TabName5);
-
-            return arguments.ToString();
+            var defaultWorkingDirectory = string.IsNullOrEmpty(_options.DefaultWorkingDirectory) ? "%HOMEDRIVE%%HOMEPATH%" : _options.DefaultWorkingDirectory;
+            return Environment.ExpandEnvironmentVariables(defaultWorkingDirectory);
         }
     }
 }

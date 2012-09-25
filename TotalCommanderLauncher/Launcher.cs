@@ -36,7 +36,39 @@ namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
                 NativeMethods.SetForegroundWindow(process.MainWindowHandle);
         }
 
-        private string GetWorkingDirectory()
+        private string GetFileName()
+        {
+            return _options.Path;
+        }
+
+        private string GetArguments()
+        {
+            var arguments = new StringBuilder();
+
+            var activeItemPath = GetActiveItemPath();
+
+            if (_options.LeftPanelLocation == PanelLocation.SolutionExplorerPath)
+                arguments.AppendFormat(" -l=\"{0}\"", activeItemPath);
+            else if (_options.LeftPanelLocation == PanelLocation.SpecificPath)
+                arguments.AppendFormat(" -l=\"{0}\"", _options.LeftPanelSpecificPath);
+
+            if (_options.RightPanelLocation == PanelLocation.SolutionExplorerPath)
+                arguments.AppendFormat(" -r=\"{0}\"", activeItemPath);
+            else if (_options.RightPanelLocation == PanelLocation.SpecificPath)
+                arguments.AppendFormat(" -r=\"{0}\"", _options.RightPanelSpecificPath);
+
+            arguments.AppendFormat(" -p={0}", _options.ActivePanel == ActivePanel.Left ? "l" : "r");
+
+            if (_options.CreateNewTabs)
+                arguments.Append(" /t");
+
+            if (_options.ReuseExistingInstance)
+                arguments.Append(" /o");
+
+            return arguments.ToString();
+        }
+
+        private string GetActiveItemPath()
         {
             string path;
             var selectedItem = _dte.SelectedItems.Item(1);
@@ -66,44 +98,15 @@ namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
             }
 
             if (string.IsNullOrEmpty(path))
-            {
-                var defaultWorkingDirectory = string.IsNullOrEmpty(_options.DefaultWorkingDirectory) ? "%HOMEDRIVE%%HOMEPATH%" : _options.DefaultWorkingDirectory;
-                return Environment.ExpandEnvironmentVariables(defaultWorkingDirectory);
-            }
-            else
-                return Path.GetDirectoryName(path);
+                return GetDefaultWorkingDirectory();
+
+            return path;
         }
 
-        private string GetFileName()
+        private string GetDefaultWorkingDirectory()
         {
-            return _options.Path;
-        }
-
-        private string GetArguments()
-        {
-            var arguments = new StringBuilder();
-
-            var workingDirectory = GetWorkingDirectory();
-
-            if (_options.LeftPanelLocation == PanelLocation.SolutionExplorerDirectory)
-                arguments.AppendFormat(" -l=\"{0}\"", workingDirectory);
-            else if (_options.LeftPanelLocation == PanelLocation.SpecificDirectory)
-                arguments.AppendFormat(" -l=\"{0}\"", _options.LeftPanelSpecificDirectory);
-
-            if (_options.RightPanelLocation == PanelLocation.SolutionExplorerDirectory)
-                arguments.AppendFormat(" -r=\"{0}\"", workingDirectory);
-            else if (_options.RightPanelLocation == PanelLocation.SpecificDirectory)
-                arguments.AppendFormat(" -r=\"{0}\"", _options.RightPanelSpecificDirectory);
-
-            arguments.AppendFormat(" -p={0}", _options.ActivePanel == ActivePanel.Left ? "l" : "r");
-            
-            if (_options.CreateNewTabs)
-                arguments.Append(" /t");
-
-            if (_options.ReuseExistingInstance)
-                arguments.Append(" /o");
-
-            return arguments.ToString();
+            var defaultWorkingDirectory = string.IsNullOrEmpty(_options.DefaultWorkingDirectory) ? "%HOMEDRIVE%%HOMEPATH%" : _options.DefaultWorkingDirectory;
+            return Environment.ExpandEnvironmentVariables(defaultWorkingDirectory);
         }
     }
 }

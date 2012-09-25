@@ -62,7 +62,7 @@ namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
             if (!FileExists(Path))
                 return "Console Path points to a non-existent file.";
 
-            if (!string.IsNullOrEmpty(DefaultWorkingDirectory) && !Directory.Exists(Environment.ExpandEnvironmentVariables(DefaultWorkingDirectory)))
+            if (!string.IsNullOrEmpty(DefaultWorkingDirectory) && !PathExists(DefaultWorkingDirectory))
                 return "Default Working Directory points to a non-existent path.";
 
             return null;
@@ -97,6 +97,12 @@ namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
             }
 
             return false;
+        }
+
+        private static bool PathExists(string path)
+        {
+            var pathExpanded = Environment.ExpandEnvironmentVariables(path);
+            return File.Exists(pathExpanded) || Directory.Exists(pathExpanded);
         }
     }
 }
