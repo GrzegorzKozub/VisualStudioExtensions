@@ -1,14 +1,14 @@
-﻿using EnvDTE;
-using Microsoft.VisualStudio;
-using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using EnvDTE;
+using Microsoft.VisualStudio;
+using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.Shell.Interop;
 
 namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
 {
@@ -17,6 +17,7 @@ namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
     [PackageRegistration(UseManagedResourcesOnly = true)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [ProvideOptionPage(typeof(Options), "Console Launcher", "General", 0, 0, false)]
+    [ProvideAutoLoad(VSConstants.UICONTEXT.SolutionExists_string)]
     public sealed class ConsoleLauncherPackage : Microsoft.VisualStudio.Shell.Package
     {
         private IMenuCommandService _menuCommandService;
@@ -31,17 +32,22 @@ namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
             _menuCommandService = GetService(typeof(IMenuCommandService)) as OleMenuCommandService;
             _uiShell = GetService(typeof(SVsUIShell)) as IVsUIShell;
 
-            AddMenuComands();
+            AddMenuCommand(CommandIds.Console, HandleConsoleMenuCommand, options => true);
         }
 
         #endregion
 
-        private void AddMenuComands()
+        private void AddMenuCommand(uint commandId, EventHandler invokeHandler, Func<Options, bool> visible)
         {
-            var consoleCommandId = new CommandID(Guids.MenuGroup, (int)CommandIds.Console);
-            var consoleMenuCommand = new MenuCommand(HandleConsoleMenuCommand, consoleCommandId);
+            var commandID = new CommandID(Guids.MenuGroup, (int)commandId);
+            var menuCommand = new OleMenuCommand(invokeHandler, commandID);
 
-            _menuCommandService.AddCommand(consoleMenuCommand);
+            menuCommand.BeforeQueryStatus += (s, e) =>
+            {
+                menuCommand.Visible = visible(GetDialogPage(typeof(Options)) as Options);
+            };
+
+            _menuCommandService.AddCommand(menuCommand);
         }
 
         private void HandleConsoleMenuCommand(object sender, EventArgs ea)
