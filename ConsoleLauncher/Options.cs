@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Microsoft.VisualStudio.Shell;
 
 namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
@@ -31,27 +32,27 @@ namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
 
         [Category("Tabs")]
         [DisplayName("Tab 1 Name")]
-        [Description("The tab name configured in Console settings to open when launching Console. Case sensitive.")]
+        [Description("Case sensitive tab name configured in Console settings to open when launching Console. This is passed to the -t command line option.")]
         public string TabName1 { get; set; }
 
         [Category("Tabs")]
         [DisplayName("Tab 2 Name")]
-        [Description("The tab name configured in Console settings to open when launching Console. Case sensitive.")]
+        [Description("Case sensitive tab name configured in Console settings to open when launching Console. This is passed to the -t command line option.")]
         public string TabName2 { get; set; }
 
         [Category("Tabs")]
         [DisplayName("Tab 3 Name")]
-        [Description("The tab name configured in Console settings to open when launching Console. Case sensitive.")]
+        [Description("Case sensitive tab name configured in Console settings to open when launching Console. This is passed to the -t command line option.")]
         public string TabName3 { get; set; }
 
         [Category("Tabs")]
         [DisplayName("Tab 4 Name")]
-        [Description("The tab name configured in Console settings to open when launching Console. Case sensitive.")]
+        [Description("Case sensitive tab name configured in Console settings to open when launching Console. This is passed to the -t command line option.")]
         public string TabName4 { get; set; }
 
         [Category("Tabs")]
         [DisplayName("Tab 5 Name")]
-        [Description("The tab name configured in Console settings to open when launching Console. Case sensitive.")]
+        [Description("Case sensitive tab name configured in Console settings to open when launching Console. This is passed to the -t command line option.")]
         public string TabName5 { get; set; }
 
         public string GetValidationErrors()
@@ -81,6 +82,19 @@ namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
             TabName3 = null;
             TabName4 = null;
             TabName5 = null;
+        }
+
+        protected override void OnApply(DialogPage.PageApplyEventArgs e)
+        {
+            var validationErrors = GetValidationErrors();
+
+            if (validationErrors != null)
+            {
+                MessageBox.Show(validationErrors, "Console Launcher", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.ApplyBehavior = ApplyKind.CancelNoNavigate;
+            }
+            else
+                base.OnApply(e);
         }
 
         #endregion

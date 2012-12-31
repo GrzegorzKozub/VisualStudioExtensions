@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Microsoft.VisualStudio.Shell;
 
 namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
@@ -26,7 +27,7 @@ namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
 
         [Category("Directories")]
         [DisplayName("Default Working Directory")]
-        [Description("Total Commander will open this folder in case it cannot guess the working directory from the current Solution Explorer selection.")]
+        [Description("Total Commander will open this folder in case it cannot guess the working directory from the current Solution Explorer selection. This is passed to the -l and/or -r command line option.")]
         public string DefaultWorkingDirectory { get; set; }
 
         [Category("Left Panel")]
@@ -37,7 +38,7 @@ namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
 
         [Category("Left Panel")]
         [DisplayName("Left Panel Specific Path")]
-        [Description("The folder or file to open in the left Total Commander panel if Left Panel Location is set to Specific Path.")]
+        [Description("The folder or file to open in the left Total Commander panel if Left Panel Location is set to Specific Path. This is passed to the -l command line option.")]
         public string LeftPanelSpecificPath { get; set; }
 
         [Category("Right Panel")]
@@ -48,24 +49,24 @@ namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
 
         [Category("Right Panel")]
         [DisplayName("Right Panel Specific Path")]
-        [Description("The folder or file to open in the right Total Commander panel if Right Panel Location is set to Specific Path.")]
+        [Description("The folder or file to open in the right Total Commander panel if Right Panel Location is set to Specific Path. This is passed to the -r command line option.")]
         public string RightPanelSpecificPath { get; set; }
 
         [Category("Settings")]
         [DisplayName("Active Panel")]
-        [Description("Total Commander panel to activate.")]
+        [Description("Total Commander panel to activate. The same as the -p command line option.")]
         [TypeConverter(typeof(ActivePanelConverter))]
         public ActivePanel ActivePanel { get; set; }
 
         [Category("Settings")]
         [DisplayName("Create New Tabs")]
-        [Description("Create new Total Commander tabs for the directories to open.")]
+        [Description("Create new Total Commander tabs for the directories to open. The same as the -t command line option.")]
         [TypeConverter(typeof(YesNoConverter))]
         public bool CreateNewTabs { get; set; }
 
         [Category("Settings")]
         [DisplayName("Reuse Existing Instance")]
-        [Description("Activate an already running Total Commander instance passing it the directories to open.")]
+        [Description("Activate an already running Total Commander instance passing it the directories to open. The same as the -o command line option.")]
         [TypeConverter(typeof(YesNoConverter))]
         public bool ReuseExistingInstance { get; set; }
 
@@ -110,6 +111,19 @@ namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
             ActivePanel = ActivePanel.Left;
             ReuseExistingInstance = false;
             CreateNewTabs = false;
+        }
+
+        protected override void OnApply(DialogPage.PageApplyEventArgs e)
+        {
+            var validationErrors = GetValidationErrors();
+
+            if (validationErrors != null)
+            {
+                MessageBox.Show(validationErrors, "ConEmu Launcher", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.ApplyBehavior = ApplyKind.CancelNoNavigate;
+            }
+            else
+                base.OnApply(e);
         }
 
         #endregion

@@ -24,7 +24,7 @@ namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
 
         internal void Launch()
         {
-            var process = System.Diagnostics.Process.Start(new ProcessStartInfo()
+            var process = System.Diagnostics.Process.Start(new ProcessStartInfo
             {
                 FileName = GetFileName(),
                 Arguments = GetArguments()
