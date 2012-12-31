@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Extern href="stdidcmd.h" />
+  <Extern href="vsshlids.h" />
+  <Commands package="guidPackage">
+    <Groups>
+      <Group guid="guidMenuGroup" id="idMenuGroup" priority="0xFFF0">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS" />
+      </Group>
+      <Group guid="guidMenuGroup" id="idMenuGroup" priority="0x650">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_TOOL_PROJWIN" />
+      </Group>
+      <Group guid="guidMenuGroup" id="idMenuGroup" priority="0x650">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_SOLNNODE" />
+      </Group>
+      <Group guid="guidMenuGroup" id="idMenuGroup" priority="0x400">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_SOLNFOLDER" />
+      </Group>
+      <Group guid="guidMenuGroup" id="idMenuGroup" priority="0x650">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_PROJNODE" />
+      </Group>
+      <Group guid="guidMenuGroup" id="idMenuGroup" priority="0x400">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_FOLDERNODE" />
+      </Group>
+      <Group guid="guidMenuGroup" id="idMenuGroup" priority="0x500">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ITEMNODE" />
+      </Group>
+    </Groups>
+    <Buttons>
+      <Button guid="guidMenuGroup" id="idCommand" priority="0x1" type="Button">
+        <Parent guid="guidMenuGroup" id="idMenuGroup" />
+        <Icon guid="guidImages" id="idIcon" />
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <CommandName>idCommand</CommandName>
+          <ButtonText>ConEmu</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+    <Bitmaps>
+      <Bitmap guid="guidImages" href="Resources\Images.png" usedList="idIcon" />
+    </Bitmaps>
+  </Commands>
+  <VisibilityConstraints>
+    <VisibilityItem guid="guidMenuGroup" id="idCommand" context="UICONTEXT_SolutionExists" />
+  </VisibilityConstraints>
+  <KeyBindings>
+    <KeyBinding guid="guidMenuGroup" id="idCommand" editor="guidVSStd97" key1="U" mod1="Shift Alt" />
+  </KeyBindings>
+  <Symbols>
+    <GuidSymbol name="guidPackage" value="{2a486719-d827-49f3-8f8b-3e8e56a3a059}" />
+    <GuidSymbol name="guidMenuGroup" value="{a0c5cea2-6dc8-4cfb-bf01-4cd5b2685145}">
+      <IDSymbol name="idMenuGroup" value="0x101" />
+      <IDSymbol name="idCommand" value="0x201" />
+    </GuidSymbol>
+    <GuidSymbol name="guidImages" value="{0ec14517-1e59-45cd-ac82-9471b965ee55}">
+      <IDSymbol name="idIcon" value="1" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>
