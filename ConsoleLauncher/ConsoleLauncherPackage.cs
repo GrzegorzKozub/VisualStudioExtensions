@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Linq;
+using System.Diagnostics;
+using System.Globalization;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using EnvDTE;
+using System.ComponentModel.Design;
+using Microsoft.Win32;
 using Microsoft.VisualStudio;
-using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
+using Microsoft.VisualStudio.OLE.Interop;
+using Microsoft.VisualStudio.Shell;
+using EnvDTE;
 
 namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
 {
@@ -18,7 +18,7 @@ namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [ProvideOptionPage(typeof(Options), "Console Launcher", "General", 0, 0, false)]
     [ProvideAutoLoad(VSConstants.UICONTEXT.SolutionExists_string)]
-    public sealed class ConsoleLauncherPackage : Microsoft.VisualStudio.Shell.Package
+    public sealed class ConsoleLauncherPackage : Package
     {
         private IMenuCommandService _menuCommandService;
         private IVsUIShell _uiShell;

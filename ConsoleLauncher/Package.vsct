@@ -33,7 +33,6 @@
         <CommandFlag>DefaultInvisible</CommandFlag>
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
-          <CommandName>idCommand</CommandName>
           <ButtonText>Console</ButtonText>
         </Strings>
       </Button>

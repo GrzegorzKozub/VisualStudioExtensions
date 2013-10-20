@@ -12,12 +12,12 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Grzegorz Kozub")]
 [assembly: AssemblyProduct("ConEmu Launcher")]
-[assembly: AssemblyCopyright("Copyright © Grzegorz Kozub 2012")]
+[assembly: AssemblyCopyright("Copyright © Grzegorz Kozub 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]   
 [assembly: ComVisible(false)]     
 [assembly: CLSCompliant(false)]
-[assembly: NeutralResourcesLanguage("")]
+[assembly: NeutralResourcesLanguage("en-US")]
 
 // Version information for an assembly consists of the following four values:
 //
