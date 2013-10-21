@@ -3,7 +3,7 @@
   <Metadata>
     <Identity Id="2a486719-d827-49f3-8f8b-3e8e56a3a059" Version="1.0.0.0" Language="en-US" Publisher="Grzegorz Kozub" />
     <DisplayName>ConEmu Launcher</DisplayName>
-    <Description>A command to launch ConEmu (http://code.google.com/p/conemu-maximus5/) in the location of the currently selected Solution Explorer item. The command is added to the Solution Explorer context menu, Solution Explorer toolbar and the Tools main menu and is only visible when a solution or project is open. Options allow for specifying a ConEmu task which will be executed.</Description>
+    <Description xml:space="preserve">A command to launch ConEmu in the currently selected Solution Explorer item context. Added to the Tools and Solution Explorer menu when a solution or project is open.</Description>
     <MoreInfo>http://code.google.com/p/conemu-maximus5/</MoreInfo>
     <License>Licenses\MS-PL.txt</License>
     <GettingStartedGuide>http://visualstudiogallery.msdn.microsoft.com/1ce30e82-c27c-40fd-b2d8-310ab234ab74</GettingStartedGuide>

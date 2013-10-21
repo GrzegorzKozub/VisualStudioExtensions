@@ -121,7 +121,7 @@
     <value>ConEmu Launcher</value>
   </data>
   <data name="2" xml:space="preserve">
-    <value>A command to launch ConEmu (http://code.google.com/p/conemu-maximus5/) in the location of the currently selected Solution Explorer item. The command is added to the Solution Explorer context menu, Solution Explorer toolbar and the Tools main menu and is only visible when a solution or project is open. Options allow for specifying a ConEmu task which will be executed.</value>
+    <value>A command to launch ConEmu in the currently selected Solution Explorer item context. Added to the Tools and Solution Explorer menu when a solution or project is open.</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="3" type="System.Resources.ResXFileRef, System.Windows.Forms">
