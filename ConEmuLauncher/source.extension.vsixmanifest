@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="2a486719-d827-49f3-8f8b-3e8e56a3a059" Version="1.0.0.0" Language="en-US" Publisher="Grzegorz Kozub" />
+    <Identity Id="2a486719-d827-49f3-8f8b-3e8e56a3a059" Version="1.0.1.0" Language="en-US" Publisher="Grzegorz Kozub" />
     <DisplayName>ConEmu Launcher</DisplayName>
     <Description xml:space="preserve">A command to launch ConEmu in the currently selected Solution Explorer item context. Added to the Tools and Solution Explorer menu when a solution or project is open.</Description>
     <MoreInfo>http://code.google.com/p/conemu-maximus5/</MoreInfo>
