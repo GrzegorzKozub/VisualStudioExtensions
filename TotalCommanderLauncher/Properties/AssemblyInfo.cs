@@ -7,11 +7,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TotalCommander Launcher")]
+[assembly: AssemblyTitle("Total Commander Launcher")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Grzegorz Kozub")]
-[assembly: AssemblyProduct("TotalCommander Launcher")]
+[assembly: AssemblyProduct("Total Commander Launcher")]
 [assembly: AssemblyCopyright("Copyright © Grzegorz Kozub 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]   
