@@ -1,5 +1,4 @@
-Visual Studio Extensions
-========================
+# Visual Studio Extensions
 
 A set of extensions that add commands to [Visual Studio](http://www.microsoft.com/visualstudio/) Tools and Solution Explorer menu when a solution or project is open. Each of these commands launch a particular app in the currently selected Solution Explorer item context. Some configuration options are provided.
 
