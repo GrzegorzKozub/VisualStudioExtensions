@@ -74,6 +74,12 @@ namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
             var selectedItem = _dte.SelectedItems.Item(1);
 
             if (selectedItem.Project != null &&
+                selectedItem.Project.Kind == "{E24C65DC-7377-472b-9ABA-BC803B73C61A}")
+            {
+                // Web Site.
+                path = selectedItem.Project.Properties.Item("FullPath").Value.ToString() + "\\";
+            }
+            else if (selectedItem.Project != null &&
                 selectedItem.Project.Kind != "{66A26720-8FB5-11D2-AA7E-00C04F688DDE}" && // Excludes Solution Folders.
                 !string.IsNullOrEmpty(selectedItem.Project.FullName))
             {
