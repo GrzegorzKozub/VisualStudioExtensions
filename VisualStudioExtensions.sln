@@ -1,19 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConEmuLauncher", "ConEmuLauncher\ConEmuLauncher.csproj", "{8441A9A1-4C16-4306-9410-CD8AA0A3BAAF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleLauncher", "ConsoleLauncher\ConsoleLauncher.csproj", "{56F3709B-22AB-439C-9B65-490962D02E9A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TotalCommanderLauncher", "TotalCommanderLauncher\TotalCommanderLauncher.csproj", "{E0171571-B257-4F22-9854-D1866CEBC70E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C69FCD97-4C06-42E8-B18E-A668C51FC150}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConEmuLauncher", "ConEmuLauncher\ConEmuLauncher.csproj", "{8441A9A1-4C16-4306-9410-CD8AA0A3BAAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleLauncher", "ConsoleLauncher\ConsoleLauncher.csproj", "{56F3709B-22AB-439C-9B65-490962D02E9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TotalCommanderLauncher", "TotalCommanderLauncher\TotalCommanderLauncher.csproj", "{E0171571-B257-4F22-9854-D1866CEBC70E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
