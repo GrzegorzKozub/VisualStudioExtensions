@@ -5,7 +5,7 @@ A set of extensions that add commands to [Visual Studio](http://www.microsoft.co
 The following apps are integrated:
 
 - [Console](http://sourceforge.net/projects/console/) - a good Windows command prompt enhancement
-- [ConEmu](http://code.google.com/p/conemu-maximus5/) - a superb Windows command enhancement
+- [ConEmu](http://code.google.com/p/conemu-maximus5/) - a superb Windows command prompt enhancement
 - [Total Commander](http://www.ghisler.com/) - a great Windows Explorer replacement
 
 More information on these extensions can be found on the [Visual Studio extensions page](http://goo.gl/wny4gn).
