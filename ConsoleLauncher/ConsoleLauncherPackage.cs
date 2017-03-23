@@ -13,7 +13,7 @@ using EnvDTE;
 namespace GrzegorzKozub.VisualStudioExtensions.ConsoleLauncher
 {
     [Guid(Guids.Package)]
-    [InstalledProductRegistration("#1", "#2", "1.4.1.0", IconResourceID = 3)]
+    [InstalledProductRegistration("#1", "#2", "1.5.0.0", IconResourceID = 3)]
     [PackageRegistration(UseManagedResourcesOnly = true)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [ProvideOptionPage(typeof(Options), "Console Launcher", "General", 0, 0, false)]
