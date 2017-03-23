@@ -6,8 +6,8 @@
     <Description xml:space="preserve">A command to launch Console in the currently selected Solution Explorer item context. Added to the Tools and Solution Explorer menu when a solution or project is open.</Description>
     <MoreInfo>http://sourceforge.net/projects/console/</MoreInfo>
     <License>Licenses\MS-PL.txt</License>
-    <GettingStartedGuide>http://visualstudiogallery.msdn.microsoft.com/1460ab21-75be-49d0-900f-dfd538321424</GettingStartedGuide>
-    <ReleaseNotes>http://visualstudiogallery.msdn.microsoft.com/1460ab21-75be-49d0-900f-dfd538321424</ReleaseNotes>
+    <GettingStartedGuide>https://marketplace.visualstudio.com/items?itemName=GrzegorzKozub.ConsoleLauncher</GettingStartedGuide>
+    <ReleaseNotes>https://marketplace.visualstudio.com/items?itemName=GrzegorzKozub.ConsoleLauncher</ReleaseNotes>
     <Icon>Images\Icon.png</Icon>
     <PreviewImage>Images\PreviewImage.png</PreviewImage>
     <Tags>command-line, PowerShell, node, Console, command prompt, cmd, Solution Explorer, Git, irb</Tags>

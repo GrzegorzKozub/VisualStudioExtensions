@@ -4,10 +4,10 @@
     <Identity Id="2a486719-d827-49f3-8f8b-3e8e56a3a059" Version="1.2.0.0" Language="en-US" Publisher="Grzegorz Kozub" />
     <DisplayName>ConEmu Launcher</DisplayName>
     <Description xml:space="preserve">A command to launch ConEmu in the currently selected Solution Explorer item context. Added to the Tools and Solution Explorer menu when a solution or project is open.</Description>
-    <MoreInfo>http://code.google.com/p/conemu-maximus5/</MoreInfo>
+    <MoreInfo>https://conemu.github.io/</MoreInfo>
     <License>Licenses\MS-PL.txt</License>
-    <GettingStartedGuide>http://visualstudiogallery.msdn.microsoft.com/1ce30e82-c27c-40fd-b2d8-310ab234ab74</GettingStartedGuide>
-    <ReleaseNotes>http://visualstudiogallery.msdn.microsoft.com/1ce30e82-c27c-40fd-b2d8-310ab234ab74</ReleaseNotes>
+    <GettingStartedGuide>https://marketplace.visualstudio.com/items?itemName=GrzegorzKozub.ConEmuLauncher</GettingStartedGuide>
+    <ReleaseNotes>https://marketplace.visualstudio.com/items?itemName=GrzegorzKozub.ConEmuLauncher</ReleaseNotes>
     <Icon>Images\Icon.png</Icon>
     <PreviewImage>Images\PreviewImage.png</PreviewImage>
     <Tags>command-line, PowerShell, node, command prompt, cmd, Solution Explorer, Git, ConEmu, irb</Tags>

@@ -6,8 +6,8 @@
     <Description xml:space="preserve">A command to launch Total Commander in the currently selected Solution Explorer item context. Added to the Tools and Solution Explorer menu when a solution or project is open.</Description>
     <MoreInfo>http://www.ghisler.com/</MoreInfo>
     <License>Licenses\MS-PL.txt</License>
-    <GettingStartedGuide>http://visualstudiogallery.msdn.microsoft.com/6432661f-c473-4883-aacd-008107c1135e</GettingStartedGuide>
-    <ReleaseNotes>http://visualstudiogallery.msdn.microsoft.com/6432661f-c473-4883-aacd-008107c1135e</ReleaseNotes>
+    <GettingStartedGuide>https://marketplace.visualstudio.com/items?itemName=GrzegorzKozub.TotalCommanderLauncher</GettingStartedGuide>
+    <ReleaseNotes>https://marketplace.visualstudio.com/items?itemName=GrzegorzKozub.TotalCommanderLauncher</ReleaseNotes>
     <Icon>Images\Icon.png</Icon>
     <PreviewImage>Images\PreviewImage.png</PreviewImage>
     <Tags>Explorer, Solution Explorer, Total Commander</Tags>
