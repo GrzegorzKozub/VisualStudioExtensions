@@ -48,7 +48,7 @@
     <KeyBinding guid="guidMenuGroup" id="idCommand" editor="guidVSStd97" key1="G" mod1="Shift Alt" />
   </KeyBindings>
   <Symbols>
-    <GuidSymbol name="guidPackage" value="{83515e4e-9bd6-4d61-a95d-0a5b2bd5c518}" />
+    <GuidSymbol name="guidPackage" value="{3d43bce4-95fc-4479-a0d5-8badbcde1a9f}" />
     <GuidSymbol name="guidMenuGroup" value="{b3545520-bd53-499b-831d-5f33baf3ba6d}">
       <IDSymbol name="idMenuGroup" value="0x101" />
       <IDSymbol name="idCommand" value="0x201" />
