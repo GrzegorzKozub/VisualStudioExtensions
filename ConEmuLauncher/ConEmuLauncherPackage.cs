@@ -13,7 +13,7 @@ using EnvDTE;
 namespace GrzegorzKozub.VisualStudioExtensions.ConEmuLauncher
 {
     [Guid(Guids.Package)]
-    [InstalledProductRegistration("#1", "#2", "1.2.0.0", IconResourceID = 3)]
+    [InstalledProductRegistration("#1", "#2", "1.3.0.0", IconResourceID = 3)]
     [PackageRegistration(UseManagedResourcesOnly = true)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [ProvideOptionPage(typeof(Options), "ConEmu Launcher", "General", 0, 0, false)]

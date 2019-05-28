@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="3d43bce4-95fc-4479-a0d5-8badbcde1a9f" Version="1.5.0.0" Language="en-US" Publisher="Grzegorz Kozub" />
+    <Identity Id="3d43bce4-95fc-4479-a0d5-8badbcde1a9f" Version="1.6.0.0" Language="en-US" Publisher="Grzegorz Kozub" />
     <DisplayName>Console Launcher</DisplayName>
     <Description xml:space="preserve">A command to launch Console in the currently selected Solution Explorer item context. Added to the Tools and Solution Explorer menu when a solution or project is open.</Description>
     <MoreInfo>http://sourceforge.net/projects/console/</MoreInfo>
