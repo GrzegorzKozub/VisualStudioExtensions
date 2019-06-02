@@ -13,7 +13,7 @@ using EnvDTE;
 namespace GrzegorzKozub.VisualStudioExtensions.TotalCommanderLauncher
 {
     [Guid(Guids.Package)]
-    [InstalledProductRegistration("#1", "#2", "1.5.0.0", IconResourceID = 3)]
+    [InstalledProductRegistration("#1", "#2", "1.5.1.0", IconResourceID = 3)]
     [PackageRegistration(UseManagedResourcesOnly = true)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [ProvideOptionPage(typeof(Options), "Total Commander Launcher", "General", 0, 0, false)]
