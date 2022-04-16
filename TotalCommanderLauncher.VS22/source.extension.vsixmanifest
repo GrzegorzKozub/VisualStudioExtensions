@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+    <Metadata>
+        <Identity Id="504f9f56-9629-48c7-adb9-cbcce53bf9b7" Version="1.5.2.0" Language="en-US" Publisher="Grzegorz Kozub" />
+        <DisplayName>Total Commander Launcher</DisplayName>
+        <Description xml:space="preserve">A command to launch Total Commander in the currently selected Solution Explorer item context. Added to the Tools and Solution Explorer menu when a solution or project is open.</Description>
+        <MoreInfo>http://www.ghisler.com/</MoreInfo>
+        <License>Licenses\MS-PL.txt</License>
+        <GettingStartedGuide>https://marketplace.visualstudio.com/items?itemName=GrzegorzKozub.TotalCommanderLauncher</GettingStartedGuide>
+        <ReleaseNotes>https://marketplace.visualstudio.com/items?itemName=GrzegorzKozub.TotalCommanderLauncher</ReleaseNotes>
+        <Icon>Images\Icon.png</Icon>
+        <PreviewImage>Images\PreviewImage.png</PreviewImage>
+        <Tags>Explorer, Solution Explorer, Total Commander</Tags>
+    </Metadata>
+    <Installation>
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+    </Installation>
+    <Dependencies>
+        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.8,)" />
+    </Dependencies>
+    <Prerequisites>
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
+    </Prerequisites>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    </Assets>
+</PackageManifest>

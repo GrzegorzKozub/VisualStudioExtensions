@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32317.152
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C69FCD97-4C06-42E8-B18E-A668C51FC150}"
 	ProjectSection(SolutionItems) = preProject
@@ -15,26 +15,60 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleLauncher", "ConsoleL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TotalCommanderLauncher", "TotalCommanderLauncher\TotalCommanderLauncher.csproj", "{E0171571-B257-4F22-9854-D1866CEBC70E}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TotalCommanderLauncher.Shared", "TotalCommanderLauncher.Shared\TotalCommanderLauncher.Shared.shproj", "{C67F3A76-C94B-4F0E-A03C-9F1F8D1EF966}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TotalCommanderLauncher.VS22", "TotalCommanderLauncher.VS22\TotalCommanderLauncher.VS22.csproj", "{15CF080A-AF6F-4368-9E54-EE55BCE38868}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8441A9A1-4C16-4306-9410-CD8AA0A3BAAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8441A9A1-4C16-4306-9410-CD8AA0A3BAAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8441A9A1-4C16-4306-9410-CD8AA0A3BAAF}.Debug|x86.ActiveCfg = Debug|x86
+		{8441A9A1-4C16-4306-9410-CD8AA0A3BAAF}.Debug|x86.Build.0 = Debug|x86
 		{8441A9A1-4C16-4306-9410-CD8AA0A3BAAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8441A9A1-4C16-4306-9410-CD8AA0A3BAAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8441A9A1-4C16-4306-9410-CD8AA0A3BAAF}.Release|x86.ActiveCfg = Release|x86
+		{8441A9A1-4C16-4306-9410-CD8AA0A3BAAF}.Release|x86.Build.0 = Release|x86
 		{56F3709B-22AB-439C-9B65-490962D02E9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{56F3709B-22AB-439C-9B65-490962D02E9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56F3709B-22AB-439C-9B65-490962D02E9A}.Debug|x86.ActiveCfg = Debug|x86
+		{56F3709B-22AB-439C-9B65-490962D02E9A}.Debug|x86.Build.0 = Debug|x86
 		{56F3709B-22AB-439C-9B65-490962D02E9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56F3709B-22AB-439C-9B65-490962D02E9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56F3709B-22AB-439C-9B65-490962D02E9A}.Release|x86.ActiveCfg = Release|x86
+		{56F3709B-22AB-439C-9B65-490962D02E9A}.Release|x86.Build.0 = Release|x86
 		{E0171571-B257-4F22-9854-D1866CEBC70E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E0171571-B257-4F22-9854-D1866CEBC70E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0171571-B257-4F22-9854-D1866CEBC70E}.Debug|x86.ActiveCfg = Debug|x86
+		{E0171571-B257-4F22-9854-D1866CEBC70E}.Debug|x86.Build.0 = Debug|x86
 		{E0171571-B257-4F22-9854-D1866CEBC70E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0171571-B257-4F22-9854-D1866CEBC70E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0171571-B257-4F22-9854-D1866CEBC70E}.Release|x86.ActiveCfg = Release|x86
+		{E0171571-B257-4F22-9854-D1866CEBC70E}.Release|x86.Build.0 = Release|x86
+		{15CF080A-AF6F-4368-9E54-EE55BCE38868}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15CF080A-AF6F-4368-9E54-EE55BCE38868}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15CF080A-AF6F-4368-9E54-EE55BCE38868}.Debug|x86.ActiveCfg = Debug|x86
+		{15CF080A-AF6F-4368-9E54-EE55BCE38868}.Debug|x86.Build.0 = Debug|x86
+		{15CF080A-AF6F-4368-9E54-EE55BCE38868}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15CF080A-AF6F-4368-9E54-EE55BCE38868}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15CF080A-AF6F-4368-9E54-EE55BCE38868}.Release|x86.ActiveCfg = Release|x86
+		{15CF080A-AF6F-4368-9E54-EE55BCE38868}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {848409E1-8011-41B4-898E-A9011BC3B3AB}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		TotalCommanderLauncher.Shared\TotalCommanderLauncher.Shared.projitems*{15cf080a-af6f-4368-9e54-ee55bce38868}*SharedItemsImports = 4
+		TotalCommanderLauncher.Shared\TotalCommanderLauncher.Shared.projitems*{c67f3a76-c94b-4f0e-a03c-9f1f8d1ef966}*SharedItemsImports = 13
+		TotalCommanderLauncher.Shared\TotalCommanderLauncher.Shared.projitems*{e0171571-b257-4f22-9854-d1866cebc70e}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal
